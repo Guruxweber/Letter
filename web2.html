@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message for Best Friend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="intro" id="intro">
+        <h1>Hello friend, welcome!</h1>
+        <p>Are you ready to open?</p>
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+    <div class="container" id="container">
+        <div class="heart" id="heart">✉️</div> <!-- Changed from pentagon to heart -->
+        <div class="message" id="message">
+            Dear Kruthika,<br>
+            Having you as my best friend feels like discovering a rare treasure; your loyalty shines brightly. We’re inseparable, facing every challenge together. When I'm feeling low, you’re the silver lining that lifts me up. Your unwavering support shows how much you truly care.
+            With care,<br>
+            Guru Kiran
+      </div>
+    </div>
+
+    <script>
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('container').style.display = 'block';
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+
+        document.getElementById('heart').addEventListener('click', function() {
+            const message = document.getElementById('message');
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+                document.body.style.background = 'linear-gradient(to bottom, #ffcccc, #ff99cc)'; /* Set attractive background */
+            } else {
+                message.style.display = 'block';
+                document.body.style.background = 'linear-gradient(to bottom, #ffcccc, #ff99cc)'; /* Set attractive background */
+                createFlowerShower();
+            }
+        });
+
+        function createFlowerShower() {
+            for (let i = 0; i < 30; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(flower);
+
+                setTimeout(() => {
+                    flower.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
